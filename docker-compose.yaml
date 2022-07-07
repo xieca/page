@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dev:
+    container_name: poc_page
+    build:
+      context: ./docker/dev
+    volumes:
+      - './:/page'
+    working_dir: '/page'
+    command: [ '/bin/sh', '-c', 'tail -f /dev/null' ]
+    restart: always
+    ports:
+      - '4000:4000'
